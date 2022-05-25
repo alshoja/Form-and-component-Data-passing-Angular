@@ -78,16 +78,6 @@ body, .m-0{
     top: auto;
   }
 }
-
-/* CTA, logo, and rich text images */
-
-.hs_cos_wrapper_type_cta img,
-.hs_cos_wrapper_type_logo img,
-.hs_cos_wrapper_type_rich_text img {
-  height: auto;
-  max-width: 100%;
-}
-
 /* Custom CSS*/
 
 .c-container{
@@ -464,8 +454,9 @@ body, .m-0{
 .text-bold{
   font-weight: 700;
 }
+
 .bg-primary-gradiant {
-  background: linear-gradient(288.66deg, #8d8a8a 0.94%, #8053d5 80.38%);
+  background: linear-gradient(288.66deg, #bc95f9 0.94%, #8053d5 80.38%);
 }
 
 .bg-white{
