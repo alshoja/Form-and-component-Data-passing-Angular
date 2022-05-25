@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-post',
@@ -7,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostComponent implements OnInit {
 
-  constructor() { }
+  constructor(private location: Location) { }
 
   ngOnInit() {
     console.log('haaaaaaaaaaaaaaaaaaaa')
+  }
+
+  goBack(){
+    this.location.back()
   }
 
 }

@@ -65,4 +65,9 @@
   border-bottom: 1px solid #a77cf4;
 }
 
+.button-position{
+  position: absolute;
+  /* border-radius: 30px; */
+}
+
 
