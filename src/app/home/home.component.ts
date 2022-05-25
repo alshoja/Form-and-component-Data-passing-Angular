@@ -8,8 +8,9 @@ import { PostsService } from '../services/posts.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
-  form = this.fb.group({
+   error=false;
+   message:string ='';
+   form = this.fb.group({
     id: ['',[ Validators.required, Validators.pattern("^[0-9]*$"),]],
   });
 
@@ -18,11 +19,24 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSubmit(){
+  /**
+  * @deprecated
+  * Old subscription pattern has been deprecated
+  * https://rxjs.dev/deprecations/subscribe-arguments
+  */
+
+  onSubmit(): void{
     if (this.form.valid) {
       const body = this.form.value;
-      this.postsService.getPost(body.id).subscribe((res) => {
-        console.log('res', res);
+      this.postsService.getPost(body.id).subscribe({
+        next: (user) => { console.log('user',user)  },
+        error: (err) => {
+          if(err.status == 404) {
+          this.error = true;
+          this.message = err.error.message;
+        }
+      },
+        complete: () => {console.log('completed')  }
       });
     }
   }
