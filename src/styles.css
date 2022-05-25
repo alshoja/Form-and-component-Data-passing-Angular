@@ -464,8 +464,8 @@ body, .m-0{
 .text-bold{
   font-weight: 700;
 }
-.bg-primary-gradiant{
-  background: linear-gradient(288.66deg, #7E4AC7 0.94%, #576BB0 80.38%);
+.bg-primary-gradiant {
+  background: linear-gradient(288.66deg, #8d8a8a 0.94%, #8053d5 80.38%);
 }
 
 .bg-white{
