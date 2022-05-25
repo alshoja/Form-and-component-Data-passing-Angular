@@ -3,10 +3,10 @@
   <div class="user-wrapper">
     <h4>User Portal</h4>
     <form (ngSubmit)="onSubmit()" [formGroup]="form">
-      <p *ngIf="(form.dirty || form.touched) && hasError('id', 'required')" class="text-danger">Input must be a number !</p>
+      <p *ngIf="(form.dirty || form.touched) && hasError('id', 'required')" class="text-danger">Input must be a number !
+      </p>
       <input type="text" formControlName="id" placeholder="Enter Unique ID">
-      <button [disabled]="!form.valid" [routerLink]="['/post/detail', 2]"
-        class="submit-btn button-position">SEND</button>
+      <button type="submit" [disabled]="!form.valid" class="submit-btn button-position">SEND</button>
     </form>
   </div>
 </div>

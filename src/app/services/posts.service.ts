@@ -10,6 +10,6 @@ export class PostsService {
   constructor(private http: HttpClient) {}
 
   public getPost(id:number) {
-    return this.http.get(this.API_URL+ id);
+    return this.http.get(this.API_URL+'/posts/'+ id);
   }
 }

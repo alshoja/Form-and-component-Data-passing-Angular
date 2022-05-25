@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { PostsService } from '../services/posts.service';
 
 @Component({
   selector: 'app-home',
@@ -12,12 +13,18 @@ export class HomeComponent implements OnInit {
     id: ['',[ Validators.required, Validators.pattern("^[0-9]*$"),]],
   });
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder,private readonly postsService:PostsService) { }
 
   ngOnInit() {
   }
 
   onSubmit(){
+    if (this.form.valid) {
+      const body = this.form.value;
+      this.postsService.getPost(body.id).subscribe((res) => {
+        console.log('res', res);
+      });
+    }
   }
 
   public hasError = (controlName: string, errorName: string) => {
