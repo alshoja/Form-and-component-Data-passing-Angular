@@ -1255,7 +1255,7 @@ body, .m-0{
 }
 
 main{
-  min-height: calc(100vh - 80px);
+  min-height: calc(70vh - 80px);
 }
 footer{
   color:white;
