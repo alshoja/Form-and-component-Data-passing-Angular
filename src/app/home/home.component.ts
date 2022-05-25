@@ -32,7 +32,17 @@ export class HomeComponent implements OnInit {
       const body = this.form.value;
       this.postsService.getPost(body.id).subscribe({
         next: (post) => {
-          this.router.navigateByUrl('/post/detail', { state: post });
+          if (
+            !post.hasOwnProperty("title") ||
+            !post.hasOwnProperty("body") ||
+            !post.title ||
+            !post.body
+          ) {
+            this.error = true;
+            this.message = 'Either Body or Title is Missing';
+          } else {
+            this.router.navigateByUrl('/post/detail', { state: post });
+          }
         },
         error: (err) => {
           if (err.status == 404) {
