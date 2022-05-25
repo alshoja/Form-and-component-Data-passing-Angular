@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  form = this.fb.group({
+    id: ['',[ Validators.required, Validators.pattern("^[0-9]*$"),]],
+  });
+
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
   }
 
+  onSubmit(){
+  }
+
+  public hasError = (controlName: string, errorName: string) => {
+    return this.form.controls[controlName].hasError(errorName);
+  }
 }
