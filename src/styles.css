@@ -11,8 +11,6 @@ body,
   padding-left: 0;
 }
 
-/* Horizontal menu */
-
 .hs-menu-wrapper.hs-menu-flow-horizontal .hs-menu-children-wrapper {
   flex-direction: column;
 }
@@ -23,13 +21,9 @@ body,
   }
 }
 
-/* Vertical menu */
-
 .hs-menu-wrapper.hs-menu-flow-vertical ul {
   flex-direction: column;
 }
-
-/* Flyouts */
 
 .hs-menu-wrapper.hs-menu-flow-vertical.flyouts ul {
   display: inline-flex;
@@ -1313,6 +1307,6 @@ button:disabled {
   background-color: gray !important;
 }
 
-.text-danger{
+.text-danger {
   color: #da5a5a;
 }

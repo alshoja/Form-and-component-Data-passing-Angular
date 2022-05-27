@@ -35,27 +35,3 @@
   letter-spacing: 0.5px;
   font-weight: 300;
 }
-.card .social {
-  margin-bottom: 5px;
-}
-.card .social a {
-  text-decoration: none !important;
-  color: black;
-  margin-left: 8px;
-  font-weight: 300;
-}
-.card .social a i {
-  font-weight: 400;
-}
-.card .location {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-.card .location i {
-  color: red;
-}
-.card .location p {
-  font-weight: 300;
-}
