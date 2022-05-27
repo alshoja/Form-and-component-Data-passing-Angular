@@ -3,6 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Post } from '../core/interfaces/post.interface';
 import { PostsService } from '../core/services/posts.service';
+import { SharedService } from '../core/services/shared.service';
 
 @Component({
   selector: 'app-home',
@@ -16,7 +17,12 @@ export class HomeComponent implements OnInit {
     id: ['', [Validators.required, Validators.pattern("^[0-9]*$"),]],
   });
 
-  constructor(private fb: FormBuilder, private readonly postsService: PostsService, private router: Router) { }
+  constructor(
+    private fb: FormBuilder,
+    private readonly postsService: PostsService,
+    private router: Router,
+    private readonly sharedService: SharedService
+  ) { }
 
   ngOnInit() {
   }
@@ -41,7 +47,8 @@ export class HomeComponent implements OnInit {
             this.error = true;
             this.message = 'Either Body or Title is Missing';
           } else {
-            this.router.navigateByUrl('/post/detail', { state: post });
+            this.sharedService.sendPostToComponent(post);
+            this.router.navigateByUrl('/post/detail');
           }
         },
         error: (err) => {
