@@ -5,7 +5,7 @@
     <form (ngSubmit)="onSubmit()" [formGroup]="form">
       <p *ngIf="(form.dirty || form.touched) && hasError('id', 'required')" class="text-danger">Input must be a number !
       </p>
-      <p *ngIf="error" class="text-danger">{{message}} </p>
+      <p *ngIf="errorState" class="text-danger">{{errorMessage}} </p>
       <input type="text" formControlName="id" placeholder="Enter Unique ID">
       <button type="submit" [disabled]="!form.valid" class="submit-btn button-position">SEND</button>
     </form>

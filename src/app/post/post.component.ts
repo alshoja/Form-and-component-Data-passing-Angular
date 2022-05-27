@@ -12,7 +12,11 @@ import { Subscription } from 'rxjs';
 export class PostComponent implements OnInit, OnDestroy {
   public post!: Post;
   public subscription!: Subscription;
-  constructor(private location: Location, private readonly sharedService: SharedService) { }
+
+  constructor(
+    private location: Location,
+    private readonly sharedService: SharedService
+  ) { }
 
   ngOnInit() {
     this.subscription = this.sharedService.post$.subscribe({ next: (post) => this.post = post });
