@@ -2,7 +2,6 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { Post } from '../core/interfaces/post.interface';
 import { PostsService } from '../core/services/posts.service';
 import { SharedService } from '../core/services/shared.service';
 
