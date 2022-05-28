@@ -72,6 +72,7 @@ describe('HomeComponent', () => {
       "id": 2,
     });
     expect(component.form.valid).toEqual(true);
+    expect(component.hasError('id', 'required')).toEqual(false);
   });
 
   it('should get a post', () => {

@@ -28,4 +28,10 @@ describe('PostComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should contain Back Button', () => {
+    const component = fixture.debugElement;
+    const div = component.query(By.css('[class="submit-btn"]'));
+    expect(div.nativeElement.textContent).toBe('Back');
+  });
 });
