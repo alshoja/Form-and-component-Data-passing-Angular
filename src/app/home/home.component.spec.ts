@@ -1,12 +1,10 @@
 /* tslint:disable:no-unused-variable */
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
-
-import { HomeComponent } from './home.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
+import { HomeComponent } from './home.component';
+
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -14,7 +12,9 @@ describe('HomeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [HomeComponent],
+      declarations: [
+        HomeComponent,
+      ],
       imports: [
         ReactiveFormsModule,
         FormsModule,
@@ -33,5 +33,19 @@ describe('HomeComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should require valid number', () => {
+    component.form.setValue({
+      "id": "invalidID",
+    });
+    expect(component.form.valid).toEqual(false);
+  });
+
+  it('should be valid if form value is valid', () => {
+    component.form.setValue({
+      "id": 2,
+    });
+    expect(component.form.valid).toEqual(true);
   });
 });

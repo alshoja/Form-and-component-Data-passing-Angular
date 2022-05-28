@@ -5,6 +5,7 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { PostComponent } from './post.component';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('PostComponent', () => {
   let component: PostComponent;
@@ -13,7 +14,7 @@ describe('PostComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [PostComponent],
-      imports: [HttpClientTestingModule]
+      imports: [HttpClientTestingModule, RouterTestingModule]
     })
       .compileComponents();
   }));
