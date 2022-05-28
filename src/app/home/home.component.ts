@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   constructor(
     private fb: FormBuilder,
     private readonly postsService: PostsService,
-    private router: Router,
+    public router: Router,
     private readonly sharedService: SharedService
   ) { }
 

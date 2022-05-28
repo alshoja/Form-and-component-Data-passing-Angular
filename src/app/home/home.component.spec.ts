@@ -3,12 +3,29 @@ import { HttpClientModule } from '@angular/common/http';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
+import { of } from 'rxjs';
+import { PostsService } from '../core/services/posts.service';
+import { SharedService } from '../core/services/shared.service';
+import { PostComponent } from '../post/post.component';
 import { HomeComponent } from './home.component';
 
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
   let fixture: ComponentFixture<HomeComponent>;
+
+  const spyPayLoad = {
+    "userId": 1,
+    "id": 9,
+    "title": "nesciunt iure omnis dolorem tempora et accusantium",
+    "body": "consectetur animi nesciunt "
+  }
+
+  let postsServiceSpy = jasmine.createSpyObj('PostsService', ['getPost']);
+  postsServiceSpy.getPost.and.returnValue(of(spyPayLoad));
+
+  let dataServiceSpy = jasmine.createSpyObj('SharedService', ['sendPostToComponent']);
+  dataServiceSpy.sendPostToComponent.and.returnValue(of(spyPayLoad));
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -19,8 +36,16 @@ describe('HomeComponent', () => {
         ReactiveFormsModule,
         FormsModule,
         HttpClientModule,
-        RouterTestingModule,
-      ]
+        RouterTestingModule.withRoutes([{ path: 'post/detail', component: PostComponent }]),
+      ],
+      providers: [
+        {
+          provide: PostsService, useValue: postsServiceSpy
+        },
+        {
+          provide: SharedService, useValue: dataServiceSpy
+        }
+      ],
     })
       .compileComponents();
   }));
@@ -48,4 +73,17 @@ describe('HomeComponent', () => {
     });
     expect(component.form.valid).toEqual(true);
   });
+
+  it('should get a post', () => {
+    const formData = {
+      "id": 2,
+    };
+
+    component.form.setValue(formData);
+    component.onSubmit();
+    expect(postsServiceSpy.getPost).toHaveBeenCalledWith(formData.id);
+    expect(dataServiceSpy.sendPostToComponent).toHaveBeenCalledWith(spyPayLoad);
+  });
+
+
 });
