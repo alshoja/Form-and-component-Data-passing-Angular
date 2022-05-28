@@ -1,7 +1,7 @@
 /* tslint:disable:no-unused-variable */
 
 import { TestBed, async, inject } from '@angular/core/testing';
-import { PostsService } from './posts.service';
+import { PostsService } from '../posts.service';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { environment } from 'src/environments/environment';
 
@@ -30,17 +30,12 @@ describe('Service: Posts', () => {
       "body": "consectetur animi nesciunt "
     }
 
-     const id = 1;
-     service.getPost(id).subscribe((data) => {
-       expect(data).toEqual(mockUser);
-     });
-
-     const req = httpController.expectOne({
-       method: 'GET',
-       url: `${API_URL}/posts/${id}`,
-     });
-
-     req.flush(mockUser);
+    const id = 1;
+    service.getPost(id).subscribe((data) => {
+      expect(data).toEqual(mockUser);
+    });
+    const request = httpController.expectOne({ method: 'GET', url: `${API_URL}/posts/${id}`, });
+    request.flush(mockUser);
   }));
 
 });
