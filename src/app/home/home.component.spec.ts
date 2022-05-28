@@ -22,9 +22,9 @@ describe('HomeComponent', () => {
   }
 
   let postsServiceSpy = jasmine.createSpyObj('PostsService', ['getPost']);
-  postsServiceSpy.getPost.and.returnValue(of(spyPayLoad));
-
   let dataServiceSpy = jasmine.createSpyObj('SharedService', ['sendPostToComponent']);
+
+  postsServiceSpy.getPost.and.returnValue(of(spyPayLoad));
   dataServiceSpy.sendPostToComponent.and.returnValue(of(spyPayLoad));
 
   beforeEach(async(() => {
@@ -84,6 +84,5 @@ describe('HomeComponent', () => {
     expect(postsServiceSpy.getPost).toHaveBeenCalledWith(formData.id);
     expect(dataServiceSpy.sendPostToComponent).toHaveBeenCalledWith(spyPayLoad);
   });
-
 
 });
