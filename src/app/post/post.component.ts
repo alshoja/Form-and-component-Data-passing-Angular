@@ -24,10 +24,10 @@ export class PostComponent implements OnInit, OnDestroy {
   }
 
   goBack() {
-    this.location.back()
+    this.location.back();
   }
 
   ngOnDestroy() {
-    this.subscription.unsubscribe()
+    if (this.subscription) this.subscription.unsubscribe();
   }
 }
