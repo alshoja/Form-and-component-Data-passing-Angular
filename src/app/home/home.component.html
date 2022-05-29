@@ -1,11 +1,14 @@
-<div class="parent-wrapper">
+<div class="parent-wrapper card-shadow home-wrapper">
   <span class="close-btn glyphicon glyphicon-remove"></span>
-  <div class="home-wrapper">
+  <div class="card-wrapper card-wrapper-image">
     <h4>User Portal</h4>
     <form (ngSubmit)="onSubmit()" [formGroup]="form">
-      <p *ngIf="(form.dirty || form.touched) && hasError('id', 'required')" class="text-danger">Input must be a number !
-      </p>
-      <p *ngIf="errorState" class="text-danger">{{errorMessage}} </p>
+      <div class="invalid">
+        <h5 *ngIf="(form.dirty || form.touched) && hasError('id', 'required')" class="text-danger">
+          Input must be a number !
+        </h5>
+        <h5 *ngIf="errorState" class="text-danger ">{{errorMessage}} </h5>
+      </div>
       <input type="text" formControlName="id" placeholder="Enter Unique ID">
       <button type="submit" [disabled]="!form.valid" class="submit-btn button-position">SEND</button>
     </form>

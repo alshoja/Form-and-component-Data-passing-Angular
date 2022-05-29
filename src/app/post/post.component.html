@@ -1,14 +1,8 @@
-<div class="container">
-  <div class="post">
-    <div class="title">
-      <div id="back" (click)="goBack()" class="submit-btn">Back</div>
-      <h1>{{post?.title}}</h1>
-    </div>
-    <div class="content">
-      <div class="social">
-        <textarea class="textarea" disabled>{{post?.body}}</textarea>
-      </div>
-    </div>
-    <div class="circle"></div>
+<div class="parent-wrapper post-wrapper">
+  <span class="close-btn glyphicon glyphicon-remove"></span>
+  <div class="card-wrapper">
+    <div id="back" (click)="goBack()" class="submit-btn">Back</div>
+    <h1>{{post?.title}}</h1>
+    <textarea class="textarea" disabled>{{post?.body}}</textarea>
   </div>
 </div>
