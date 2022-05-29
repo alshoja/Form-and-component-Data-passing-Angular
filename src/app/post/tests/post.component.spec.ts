@@ -4,7 +4,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { PostComponent } from './post.component';
+import { PostComponent } from '../post.component';
 import { RouterTestingModule } from '@angular/router/testing';
 
 describe('PostComponent', () => {
