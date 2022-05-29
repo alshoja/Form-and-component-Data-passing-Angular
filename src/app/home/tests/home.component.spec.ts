@@ -4,10 +4,10 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { of } from 'rxjs';
-import { PostsService } from '../core/services/posts.service';
-import { SharedService } from '../core/services/shared.service';
-import { PostComponent } from '../post/post.component';
-import { HomeComponent } from './home.component';
+import { PostsService } from 'src/app/core/services/posts.service';
+import { SharedService } from 'src/app/core/services/shared.service';
+import { PostComponent } from 'src/app/post/post.component';
+import { HomeComponent } from '../home.component';
 
 
 describe('HomeComponent', () => {
