@@ -53,9 +53,11 @@ export class HomeComponent implements OnInit, OnDestroy {
           }
         },
         error: (err) => {
+          this.errorState = true;
           if (err.status == 404) {
-            this.errorState = true;
             this.errorMessage = err.error.message;
+          } else {
+            this.errorMessage = 'Internal Server Error Or Something went wrong!';
           }
         }
       });
