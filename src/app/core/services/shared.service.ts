@@ -11,6 +11,6 @@ export class SharedService {
   constructor() { }
 
   sendPostToComponent(post: Post) {
-    this.postSource.next(post)
+    this.postSource.next(post);
   }
 }
